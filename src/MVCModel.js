@@ -3,10 +3,10 @@ class MVCModel {
   #listeners;
 
   constructor(initialData = {}) {
-      // Stores the data, which can be any type (object, array, etc.)
-      this.#data = initialData; 
-      // Array to store observer functions that are notified of data changes
-      this.#listeners = []; 
+    // Stores the data, which can be any type (object, array, etc.)
+    this.#data = initialData;
+    // Array to store observer functions that are notified of data changes
+    this.#listeners = [];
   }
 
   // Register a listener that will be notified when data changes

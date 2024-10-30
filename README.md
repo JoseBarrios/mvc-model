@@ -3,6 +3,7 @@
 A template npm package with best practices, designed to kickstart your Node.js project. This template includes TypeScript, ESLint, Prettier, GitHub Actions CI, and example configurations for common project needs.
 
 ## Table of Contents
+
 1. [Features](#features)
 2. [Getting Started](#getting-started)
 3. [Folder Structure](#folder-structure)
@@ -22,22 +23,27 @@ A template npm package with best practices, designed to kickstart your Node.js p
 ## Getting Started
 
 ### Prerequisites
+
 - **Node.js** (version 14.x or higher)
 - **npm** (comes with Node.js) or **yarn** if preferred.
 
 ### Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/yourusername/my-package.git
    cd my-package
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
+
    Or if using yarn:
+
    ```bash
    yarn install
    ```

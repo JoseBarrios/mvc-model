@@ -1,24 +1,28 @@
 {
-    "name": "mvc-model",
-    "version": "1.0.0",
-    "description": "A genetric MVC model package",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/josebarrios/mvc-model"
-    },
-    "scripts": {
-        "build": "tsc",
-        "lint": "eslint src/**/*.{js,ts}",
-        "test": "jest",
-        "format": "prettier --write .",
-        "prepublishOnly": "npm run test && npm run lint && npm run format"
-    },
-    "keywords": ["mvc", "model", "package"],
-    "author": "Jose Barrios <npm@barrios.io>",
-    "license": "MIT",
-    "devDependencies": {
-        "jest": "^29.0.0",
-        "eslint": "^9.0.0",
-        "prettier": "^3.0.0"
-    }
+  "name": "mvc-model",
+  "version": "1.0.0",
+  "description": "A genetric MVC model package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josebarrios/mvc-model"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/**/*.{js,ts}",
+    "test": "jest",
+    "format": "prettier --write .",
+    "prepublishOnly": "npm run test && npm run lint && npm run format"
+  },
+  "keywords": [
+    "mvc",
+    "model",
+    "package"
+  ],
+  "author": "Jose Barrios <npm@barrios.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0"
+  }
 }
