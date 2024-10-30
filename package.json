@@ -1,10 +1,10 @@
 {
-    "name": "example",
+    "name": "mvc-model",
     "version": "1.0.0",
     "description": "A template npm package",
     "repository": {
         "type": "git",
-        "url": "https://github.com/yourusername/example"
+        "url": "https://github.com/yourusername/mvc-model"
     },
     "scripts": {
         "build": "tsc",
