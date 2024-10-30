@@ -1,6 +1,6 @@
 const MVCModel = require('../src/MVCModel'); // Import the MVCModel class
 
-describe('MVCModel Class', () => {
+describe('Model Class (MVC)', () => {
   let model;
   let mockListener;
 
