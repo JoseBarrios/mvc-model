@@ -1,32 +1,39 @@
 class MVCModel {
+  #data;
+  #listeners;
+
   constructor(initialData = {}) {
-    this.data = initialData; // Stores the data, which can be any type (object, array, etc.)
-    this.listeners = []; // Array to store observer functions that are notified of data changes
+      // Stores the data, which can be any type (object, array, etc.)
+      this.#data = initialData; 
+      // Array to store observer functions that are notified of data changes
+      this.#listeners = []; 
   }
 
   // Register a listener that will be notified when data changes
   addListener(callback) {
-    this.listeners.push(callback);
+    this.#listeners.push(callback);
   }
 
   // Remove a specific listener
   removeListener(callback) {
-    this.listeners = this.listeners.filter((listener) => listener !== callback);
+    this.#listeners = this.#listeners.filter(
+      (listener) => listener !== callback
+    );
   }
 
   // Notify all listeners of data changes
   notifyListeners() {
-    this.listeners.forEach((listener) => listener(this.data));
+    this.#listeners.forEach((listener) => listener(this.data));
   }
 
   // Get the current data
-  getData() {
-    return this.data;
+  get data() {
+    return this.#data;
   }
 
   // Set new data, replacing the existing data, and notify listeners
-  setData(newData) {
-    this.data = newData;
+  set data(newData) {
+    this.#data = newData;
     this.notifyListeners();
   }
 
@@ -48,7 +55,7 @@ class MVCModel {
 
   // Clear all listeners (useful for cleanup)
   clearListeners() {
-    this.listeners = [];
+    this.#listeners = [];
   }
 }
 

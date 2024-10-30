@@ -18,23 +18,23 @@ describe('MVCModel Class', () => {
 
   test('initializes with default data', () => {
     const emptyMVCModel = new MVCModel();
-    expect(emptyMVCModel.getData()).toEqual({});
+    expect(emptyMVCModel.data).toEqual({});
 
     const arrayMVCModel = new MVCModel([1, 2, 3]);
-    expect(arrayMVCModel.getData()).toEqual([1, 2, 3]);
+    expect(arrayMVCModel.data).toEqual([1, 2, 3]);
   });
 
   test('setData replaces the current data and notifies listeners', () => {
     model.addListener(mockListener);
-    model.setData({ name: 'John Doe' });
+    model.data = { name: 'John Doe' };
 
-    expect(model.getData()).toEqual({ name: 'John Doe' });
+    expect(model.data).toEqual({ name: 'John Doe' });
     expect(mockListener).toHaveBeenCalledWith({ name: 'John Doe' });
   });
 
   test('addListener adds a new listener', () => {
     model.addListener(mockListener);
-    model.setData({ name: 'Jane Doe' });
+    model.data = { name: 'Jane Doe' };
 
     expect(mockListener).toHaveBeenCalledWith({ name: 'Jane Doe' });
   });
@@ -42,7 +42,7 @@ describe('MVCModel Class', () => {
   test('removeListener removes a specific listener', () => {
     model.addListener(mockListener);
     model.removeListener(mockListener);
-    model.setData({ name: 'John Doe' });
+    model.data = { name: 'John Doe' };
 
     expect(mockListener).not.toHaveBeenCalled();
   });
@@ -52,24 +52,24 @@ describe('MVCModel Class', () => {
     model.addListener(mockListener);
     model.addListener(secondListener);
 
-    model.setData({ key: 'value' });
+    model.data = { key: 'value' };
 
     expect(mockListener).toHaveBeenCalledWith({ key: 'value' });
     expect(secondListener).toHaveBeenCalledWith({ key: 'value' });
   });
 
   test('updateData updates a single property in an object and notifies listeners', () => {
-    model.setData({ age: 25 });
+    model.data = { age: 25 };
     model.addListener(mockListener);
 
     model.updateData('age', 30);
 
-    expect(model.getData()).toEqual({ age: 30 });
+    expect(model.data).toEqual({ age: 30 });
     expect(mockListener).toHaveBeenCalledWith({ age: 30 });
   });
 
   test('updateData throws an error if data is not an object', () => {
-    model.setData('not-an-object');
+    model.data = 'not-an-object';
 
     expect(() => model.updateData('age', 30)).toThrow(
       'Data must be an object to use updateData.'
@@ -77,12 +77,12 @@ describe('MVCModel Class', () => {
   });
 
   test('resetData clears data to a default value and notifies listeners', () => {
-    model.setData({ name: 'John' });
+    model.data = { name: 'John' };
     model.addListener(mockListener);
 
     model.resetData({ name: 'Anonymous' });
 
-    expect(model.getData()).toEqual({ name: 'Anonymous' });
+    expect(model.data).toEqual({ name: 'Anonymous' });
     expect(mockListener).toHaveBeenCalledWith({ name: 'Anonymous' });
   });
 
@@ -92,7 +92,7 @@ describe('MVCModel Class', () => {
     model.addListener(anotherListener);
 
     model.clearListeners();
-    model.setData({ key: 'value' });
+    model.data = { key: 'value' };
 
     expect(mockListener).not.toHaveBeenCalled();
     expect(anotherListener).not.toHaveBeenCalled();
