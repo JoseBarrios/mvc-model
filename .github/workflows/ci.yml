@@ -4,26 +4,36 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-    # Step 1: Check out the code
-    - name: Check out code
-      uses: actions/checkout@v3
+      # Step 1: Check out the code
+      - name: Check out code
+        uses: actions/checkout@v3
 
-    # Step 2: Set up Node.js environment
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '23' # Specify the Node.js version you want to use
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '23'
 
-    # Step 3: Install dependencies
-    - name: Install dependencies
-      run: npm install
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
 
-    # Step 4: Run tests
-    - name: Run tests
-      run: npm test
+      # Step 4: Install dependencies
+      - name: Fix vulnerabilities
+        run: npm audit fix
+
+      # Step 5: Lint
+      - name: Run linting
+        run: npm run lint
+
+      # Step 6: format
+      - name: Run formatting
+        run: npm run format
+
+      # Step 7: Run tests
+      - name: Run tests
+        run: npm test
